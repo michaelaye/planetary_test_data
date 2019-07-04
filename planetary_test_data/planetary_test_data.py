@@ -102,7 +102,7 @@ class PlanetaryTestDataProducts(object):
         return return_list
 
 
-def get_mission_data(args):
+def get_mission_data(args=None):
     """Downloads products from data.json
 
     Side Effects:
@@ -115,13 +115,16 @@ def get_mission_data(args):
         None
     """
 
-    data = PlanetaryTestDataProducts(
-        all_products=args.all,
-        directory=args.dir,
-        data_file=args.file,
-        instruments=args.instruments,
-        missions=args.missions,
-    )
+    if args is None:
+        data = PlanetaryTestDataProducts()
+    else:
+        data = PlanetaryTestDataProducts(
+            all_products=args.all,
+            directory=args.dir,
+            data_file=args.file,
+            instruments=args.instruments,
+            missions=args.missions,
+        )
 
     for product in data.products:
         image = data.mission_data[product]
