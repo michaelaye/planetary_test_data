@@ -1,10 +1,13 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+import argparse
+import json
 import os
 import sys
-import json
+from pathlib import Path
+
 import planetary_test_data
-import argparse
+
 try:
     import urllib.request as urllib
 except ImportError:
@@ -61,16 +64,17 @@ class PlanetaryTestDataProducts(object):
             self.mission_data = json.load(stream)
 
         if directory:
-            self.directory = directory
+            self.directory = Path(directory)
         else:
-            if os.path.exists('tests'):
-                self.directory = os.path.join('tests', 'mission_data')
+            if Path('tests').exists():
+                # using Path this way ensures it works on Windows
+                self.directory = Path('tests') / 'mission_data'
             else:
-                self.directory = 'mission_data'
+                self.directory = Path('mission_data')
 
-        if not os.path.exists(self.directory):
+        if not self.directory.exists():
             print("Creating output directory: %s" % self.directory)
-            os.makedirs(self.directory)
+            self.directory.mkdir(parents=True)
 
     @property
     def products(self):
