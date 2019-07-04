@@ -99,9 +99,9 @@ Description
 Running ``get_mission_data`` will do the following:
 
 * If ``tests`` directory exists it will create ``tests/mission_data`` if
-  necessary.  If ``tests`` does not exist, it will just create 
+  necessary.  If ``tests`` does not exist, it will just create
   ``mission_data`` in the current directory.
-* The data prodcuts tagged to be ``core`` products will be downloaded
+* The data products tagged to be ``core`` products will be downloaded
   into the download directory.
 * Use the ``-a`` or ``--all`` flag to get all the images. This, however, is NOT
   recommended for you will download over 200 images and labels.
@@ -143,7 +143,7 @@ Mission Data
 
 .. _here: https://github.com/planetarypy/planetary_test_data/blob/master/planetary_test_data/data.json
 
-The PDS mission data included in the package can be found here_. 
+The PDS mission data included in the package can be found here_.
 
 The following are core products:
 
@@ -179,9 +179,9 @@ dictionary that includes product label keys and the values found at those keys.
 Below is a sample snippet of a ``data.json`` entry::
 
     "1m298459885effa312p2956m2m1.img": {
-        "instrument": "MICROSCOPIC IMAGER", 
-        "label": "PDS3", 
-        "opens": "True", 
+        "instrument": "MICROSCOPIC IMAGER",
+        "label": "PDS3",
+        "opens": "True",
         "url": "http://pds-imaging.jpl.nasa.gov/data/mer/opportunity/mer1mo_0xxx/data/sol1918/edr/1m298459885effa312p2956m2m1.img"
     },
 
@@ -223,7 +223,7 @@ testing:
     * Near Infrared Camera 1
     * Near Infrared Camera 2
     * Near Infrared Spectrometer 1
-    * Near Infrared Spectrometer 2 
+    * Near Infrared Spectrometer 2
     * Total Luminance Photometer
     * Visible Camera
     * Visible Spectrometer
